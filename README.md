@@ -21,7 +21,7 @@ data_sources = DataSources(dictionary={
 ```
 
 ### Define metrics
-You have to compute 
+Define the metrics you have to compute, you can use anything on your data source:
 
 ```
 class Sales(MoneyMetric):
@@ -41,7 +41,7 @@ class Units(IntegerMetric):
 ```
 
 ### Define structure
-Define your filters, charts and their position
+Define your filters, charts and their position. You have to use the Bootstrap grid system:
 
 ```
 tab = EryxTab([Row([
