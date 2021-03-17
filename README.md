@@ -2,14 +2,16 @@
 
 Install by running the following command:
 
-`$ pip install git+https://github.com/eryxcoop/eryx-dash#egg=eryx_dash`
+```bash
+$ pip install git+https://github.com/eryxcoop/eryx-dash#egg=eryx_dash
+```
 
 # Create a simple report
 
 ### Read data
 First read your dataset and put it on a pandas DataFrame:
 
-```
+```python
 df_sales = pd.DataFrame({
     'Instrument': ['Guitar', 'Keyboard', 'Guitar', 'Saxophone', 'Bass'],
     'Price': [200, 450, 350, 500, 250]
@@ -23,7 +25,7 @@ data_sources = DataSources({
 ### Define metrics
 Define the metrics you have to compute, you can use anything on your data source:
 
-```
+```python
 class Sales(MoneyMetric):
     def name(self):
         return 'Sales'
@@ -43,7 +45,7 @@ class Units(IntegerMetric):
 ### Define structure
 Define your filters, charts and their position. You have to use the Bootstrap grid system:
 
-```
+```python
 tab = EryxTab([Row([
     Col([
         Row([
@@ -64,7 +66,7 @@ tab = EryxTab([Row([
 ### Create your app
 Create your Dash app and run it. All the callbacks and styles are generated automatically.
 
-```
+```python
 app = Dash(external_stylesheets=[dbc.themes.DARKLY])
 app.title = 'Dashboard | Sales'
 
