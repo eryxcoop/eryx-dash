@@ -83,4 +83,8 @@ app.run_server()
 ```
 
 # More examples
-A folder with a more complete example can be found in the repository.
+A more complete example is found in the **examples** folder:
+
+![alt text](https://github.com/eryxcoop/eryx-dash/blob/main/example/thumbnail.png?raw=true)
+
+
