@@ -1,15 +1,16 @@
-# Install
+import dash_bootstrap_components as dbc
+import pandas as pd
+import metrics
+from dash import Dash
+from eryx_dash.metrics import MoneyMetric, IntegerMetric
 
-Install by running the following command:
+from eryx_dash.components import EryxTab, BarChart, PlaceHolder
+from eryx_dash.components import EryxRow as Row
+from eryx_dash.components import EryxCol as Col
+from eryx_dash.components import ChecklistFilter, Card
+from eryx_dash.data_sources import DataSources
 
-`$ pip install git+https://github.com/eryxcoop/eryx-dash#egg=eryx_dash`
 
-# Create a simple report
-
-### Read data
-First read your dataset and put it on a pandas DataFrame:
-
-```
 df_sales = pd.DataFrame({
     'Instrument': ['Guitar', 'Keyboard', 'Guitar', 'Saxophone', 'Bass'],
     'Price': [200, 450, 350, 500, 250]
@@ -18,12 +19,8 @@ df_sales = pd.DataFrame({
 data_sources = DataSources(dictionary={
     'sales': df_sales,
 })
-```
 
-### Define metrics
-You have to compute 
 
-```
 class Sales(MoneyMetric):
     def name(self):
         return 'Sales'
@@ -38,12 +35,8 @@ class Units(IntegerMetric):
 
     def compute(self, data_sources):
         return data_sources.get('sales').shape[0]
-```
 
-### Define structure
-Define your filters, charts and their position
 
-```
 tab = EryxTab([Row([
     Col([
         Row([
@@ -59,12 +52,8 @@ tab = EryxTab([Row([
         ])
     ], width=10),
 ])], data_sources=data_sources)
-```
 
-### Create your app
-Create your Dash app and run it. All the callbacks and styles are generated automatically.
 
-```
 app = Dash(external_stylesheets=[dbc.themes.DARKLY])
 app.title = 'Dashboard | Sales'
 
@@ -78,7 +67,3 @@ app.layout = dbc.Container(
     fluid=True)
 
 app.run_server(debug=True)
-```
-
-# More examples
-A folder with a more complete example can be found in the repository.

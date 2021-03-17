@@ -46,7 +46,7 @@ class UnitsPerPurchase(MoneyMetric):
         return df.groupby('Invoice ID')['Quantity'].sum().mean()
 
 
-class Rating(MoneyMetric):
+class Rating(IntegerMetric):
     def name(self):
         return 'Rating'
 
