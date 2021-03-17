@@ -1,0 +1,5 @@
+build
+dist
+eryx_dash.egg-info
+.idea
+*.pyc
