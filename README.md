@@ -15,7 +15,7 @@ df_sales = pd.DataFrame({
     'Price': [200, 450, 350, 500, 250]
 })
 
-data_sources = DataSources(dictionary={
+data_sources = DataSources({
     'sales': df_sales,
 })
 ```
@@ -77,7 +77,7 @@ app.layout = dbc.Container(
         ]))], no_gutters=True),
     fluid=True)
 
-app.run_server(debug=True)
+app.run_server()
 ```
 
 # More examples
